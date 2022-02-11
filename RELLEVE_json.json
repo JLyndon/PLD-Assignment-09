@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Jo Lyndon A. Relleve Jr."
+    },
+    {
+        "personalInfo": {
+            "Age": "N/A",
+            "Birth Date": "N/A",
+            "Birth Place": "N/A",
+            "Nationality": "N/A",
+            "Sex": "N/A",
+            "Height": "N/A",
+            "Weight": "N/A",
+            "Civil Status": "N/A"
+        },
+        "contact": {
+            "Current Address": "N/A",
+            "Permanent Address": "N/A",
+            "Mobile Number": "N/A",
+            "Residence Number": "N/A",
+            "Email Adress": "N/A"
+        },
+        "education": {
+            "Elementary": {
+                "School": "N/A",
+                "Location": "N/A",
+                "Year": "N/A"
+            },
+            "High School": {
+                "Senior Level": {
+                    "School": "N/A",
+                    "Location": "N/A",
+                    "Year": "N/A"
+                },
+                "Junior Level": {
+                    "School": "N/A",
+                    "Location": "N/A",
+                    "Year": "N/A"
+                }
+            },
+            "Tertiary": {
+                "Field": "N/A",
+                "Major": "N/A",
+                "University": "N/A",
+                "Year": "N/A"
+            }
+        },
+        "skills": [
+            "N/A",
+            "N/A",
+            "N/A",
+            "N/A",
+            "N/A"
+        ],
+        "achvment": [
+            "N/A",
+            "N/A",
+            "N/A"
+        ],
+        "referece": "Available upon request"
+    }
+]

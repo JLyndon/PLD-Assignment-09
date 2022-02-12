@@ -9,56 +9,224 @@ import json, os
 #     The output file should be: LASTNAME_FIRSTNAME.pdf
 
 class PDF(FPDF):
+
     def marg_(self):
         self.set_margins(15, 15, 15)
 
     def pg_header (self):
         self.image("ID_2x2.jpg", 160, 11, 37, 35)
-        self.set_font("Arial", "B", 16)
+        self.set_font("helvetica", "B", 23)
         for i in range(1,2):
             self.cell(0, 10, "", border=False, ln=True)
         self.cell(40)
-        self.cell(100, 12, "Jo Lyndon A. Relleve Jr.", border=True, ln=True, align="C")
-        self.ln(20)
+        self.set_xy(35,20)
+        self.cell(100, 12, usrDetails[0]['name'], border=False, ln=True, align="C")
+        self.ln(7)
+
+    def rsme_crrobj(self):
+        self.set_fill_color(45,45,45)
+        self.set_text_color(255,255,255)
+        self.set_font("helvetica", "", 8)
+        self.cell(140, 6, content_hdr[6], border=False, ln=True, align="C", fill=True)
+        self.ln(4)
+    
+    def crrobj_cntnt(self):
+        self.set_font("helvetica", "", 9)
+        self.set_text_color(0,0,0)
+        self.set_x(20)
+        self.multi_cell(133,4,"To find a position where I am able to transmit my knowledge gained through my chosen course. In addition to grow and seek experience of the field I am pursuing.")
+        self.ln()
 
     def rsme_personal(self):
         self.set_fill_color(45,45,45)
         self.set_text_color(255,255,255)
         self.set_font("helvetica", "", 8)
-        self.cell(0, 5, content_hdr[0], border=True, ln=True, align="C", fill=True)
-        self.ln(15)
+        self.cell(0, 5, content_hdr[0], border=False, ln=True, align="C", fill=True)
+        self.ln(2)
+
+    def personal_cntnt(self):
+        self.set_font("helvetica", "", 9)
+        self.set_text_color(0,0,0)
+        self.set_x(20)
+        self.cell(20, 4, "Age", border=False, ln=False)
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Age'], border=False, ln=False)
+
+        self.cell(33, 4, "Nationality", border=False, ln=False, align="R")
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Nationality'], border=False, ln=True)
+        self.set_x(20)
+        self.cell(20, 4, "Sex", border=False, ln=False)
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Sex'], border=False, ln=False)
+
+        self.cell(33, 4, "Civil Status", border=False, ln=False, align="R")
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Civil Status'], border=False, ln=True)
+        self.set_x(20)
+        self.cell(20, 4, "Birthdate", border=False, ln=False)
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Birth Date'], border=False, ln=False)
+
+        self.cell(33, 4, "Height", border=False, ln=False, align="R")
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Height'], border=False, ln=True)
+        self.set_x(20)
+        self.cell(20, 4, "Birth Place", border=False, ln=False)
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Birth Place'], border=False, ln=False)
+
+        self.cell(33, 4, "Weight", border=False, ln=False, align="R")
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['personalInfo']['Weight'], border=False, ln=True)
+
+        self.ln(3)
+
     def rsme_contact(self):
         self.set_fill_color(45,45,45)
         self.set_text_color(255,255,255)
         self.set_font("helvetica", "", 8)
-        self.cell(0, 5, content_hdr[1], border=True, ln=True, align="C", fill=True)
-        self.ln(15)
+        self.cell(0, 5, content_hdr[1], border=False, ln=True, align="C", fill=True)
+        self.ln(2)
+    
+    def contact_cntnt(self):
+        self.set_font("helvetica", "", 9)
+        self.set_text_color(0,0,0)
+        self.set_x(20)
+        self.cell(25, 4, "Current Address", border=False, ln=False)
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(40, 4, usrDetails[1]['contact']['Current Address'], border=False, ln=True)
+        self.set_x(20)
+        self.cell(25, 4, "Mobile No.", border=False, ln=False)
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['contact']['Mobile Number'], border=False, ln=False) 
+
+        self.cell(33, 4, "Residence No.", border=False, ln=False, align="R")
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(35, 4, usrDetails[1]['contact']['Residence Number'], border=False, ln=True)       
+
+        self.set_x(20)
+        self.cell(25, 4, "Email Address", border=False, ln=False)
+        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+        self.cell(40, 4, usrDetails[1]['contact']['Email Address'], border=False, ln=True) 
+
+        self.ln(3)
+
     def rsme_educ(self):
         self.set_fill_color(45,45,45)
         self.set_text_color(255,255,255)
         self.set_font("helvetica", "", 8)
-        self.cell(0, 6, content_hdr[2], border=True, ln=True, align="C", fill=True)
-        self.ln(15)
+        self.cell(0, 5, content_hdr[2], border=False, ln=True, align="C", fill=True)
+        self.ln(5)
+
+    def educ_cntnt(self):
+        self.set_font("helvetica", "", 8)
+        self.set_text_color(0,0,0)
+        self.set_x(35)
+        self.cell(25, 4, "Tertiary", border=False, ln=False)
+        self.cell(16, 4, "", border=False, ln=False, align="C")
+        self.cell(40, 4, usrDetails[1]['education']['Tertiary']['Major'], border=False, ln=True)
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Tertiary']['University'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Tertiary']['Location'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Tertiary']['Year'], border=False, ln=True) 
+        self.ln(2)
+
+        self.set_x(35)
+        self.cell(25, 4, "Secondary", border=False, ln=False)
+        self.cell(16, 4, "", border=False, ln=False, align="C")
+        self.cell(40, 4, usrDetails[1]['education']['High School']['Senior Level']['Strand'], border=False, ln=True)
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['High School']['Senior Level']['School'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['High School']['Senior Level']['Location'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['High School']['Senior Level']['Year'], border=False, ln=True)
+        self.ln(2)
+
+        self.set_x(35)
+        self.cell(25, 4, "Primary", border=False, ln=False)
+        self.cell(16, 4, "", border=False, ln=False, align="C")
+        self.cell(40, 4, usrDetails[1]['education']['Elementary']['School_0'], border=False, ln=True)
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Elementary']['Location_0'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Elementary']['Year_0'], border=False, ln=True)
+        self.ln(3) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Elementary']['School_1'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Elementary']['Location_1'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['Elementary']['Year_1'], border=False, ln=True) 
+        self.ln(3)
+
     def rsme_skillst(self):
         self.set_fill_color(45,45,45)
         self.set_text_color(255,255,255)
         self.set_font("helvetica", "", 8)
-        self.cell(0, 6, content_hdr[3], border=True, ln=True, align="C", fill=True)
-        self.ln(15)
+        self.cell(0, 5, content_hdr[3], border=False, ln=True, align="C", fill=True)
+        self.ln(4)
+
+    def skill_cntnt(self):
+        self.set_font("helvetica", "", 8)
+        self.set_text_color(0,0,0)
+        self.set_x(20)
+        self.cell(90, 5, "Technical Skills", ln=False)
+        self.cell(20, 5, "Soft Skills", ln=True, align="R")
+        self.set_x(35)
+        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][0], ln=False)
+        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][0], ln=True)
+        self.set_x(35)
+        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][1], ln=False)
+        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][1], ln=True)
+        self.set_x(35)
+        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][2], ln=False)
+        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][2], ln=True)
+        self.set_x(35)
+        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][3], ln=False)
+        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][3], ln=True)
+        self.ln(5)
+
     def rsme_achvmnt(self):
         self.set_fill_color(45,45,45)
         self.set_text_color(255,255,255)
         self.set_font("helvetica", "", 8)
-        self.cell(0, 6, content_hdr[4], border=True, ln=True, align="C", fill=True)
-        self.ln(15)
+        self.cell(0, 5, content_hdr[4], border=False, ln=True, align="C", fill=True)
+        self.ln(5)
+
+    def achvment_cntnt(self):
+        self.set_font("helvetica", "", 8)
+        self.set_text_color(0,0,0)
+        self.set_x(20)
+        self.cell(20, 5, usrDetails[1]['achvment'][0], ln=True)
+        self.set_x(20)
+        self.cell(20, 5, usrDetails[1]['achvment'][1], ln=True)
+        self.set_x(20)
+        self.cell(20, 5, usrDetails[1]['achvment'][2], ln=True)
+        self.set_x(20)
+        self.cell(20, 5, usrDetails[1]['achvment'][3], ln=True)
+        self.ln(5)
+
     def rsme_ref(self):
         self.set_fill_color(45,45,45)
         self.set_text_color(255,255,255)
         self.set_font("helvetica", "", 8)
-        self.cell(0, 6, content_hdr[5], border=True, ln=True, align="C", fill=True)
-        self.ln(15)
+        self.cell(0, 5, content_hdr[5], border=False, ln=True, align="C", fill=True)
+        self.ln(5)
+    
+    def ref_cntnt(self):
+        self.set_font("helvetica", "", 8)
+        self.set_text_color(0,0,0)
+        self.set_x(20)
+        self.cell(20, 5, usrDetails[1]['reference'])
+        self.ln(5)
 
-content_hdr = ["PERSONAL PARTICULARS", "CONTACT", "EDUCATIONAL BACKGROUND", "SKILL SETS", "ACHIEVEMENTS", "REFERENCES"]
+content_hdr = ["PERSONAL PARTICULARS", "CONTACT INFORMATION", "EDUCATIONAL BACKGROUND", "SKILL SETS", "ACHIEVEMENTS", "REFERENCES", "CAREER OBJECTIVES"]
+
+content_sep = ":"
 
 fileName = "RELLEVE_json.json"
 
@@ -69,18 +237,25 @@ except Exception as e:
 
 with open(fileName, "r") as jsFile:
     usrDetails = json.load(jsFile)
-    print(usrDetails)
 
 pdf = PDF("P", "mm", "A4")
 pdf.set_auto_page_break(auto=True, margin=15)
 pdf.add_page()
 pdf.marg_()
 pdf.pg_header()
+pdf.rsme_crrobj()
+pdf.crrobj_cntnt()
 pdf.rsme_personal()
+pdf.personal_cntnt()
 pdf.rsme_contact()
+pdf.contact_cntnt()
 pdf.rsme_educ()
+pdf.educ_cntnt()
 pdf.rsme_skillst()
+pdf.skill_cntnt()
 pdf.rsme_achvmnt()
+pdf.achvment_cntnt()
 pdf.rsme_ref()
+pdf.ref_cntnt()
 
 pdf.output("RELLEVE_JO LYNDON.pdf")

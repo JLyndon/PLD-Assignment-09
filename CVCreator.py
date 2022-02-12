@@ -47,39 +47,19 @@ class PDF(FPDF):
     def personal_cntnt(self):
         self.set_font("helvetica", "", 9)
         self.set_text_color(0,0,0)
-        self.set_x(20)
-        self.cell(20, 4, "Age", border=False, ln=False)
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Age'], border=False, ln=False)
+        infoCateg = list(usrDetails[1]['personalInfo'].keys())
+        maxPersonal = len(infoCateg)
 
-        self.cell(33, 4, "Nationality", border=False, ln=False, align="R")
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Nationality'], border=False, ln=True)
-        self.set_x(20)
-        self.cell(20, 4, "Sex", border=False, ln=False)
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Sex'], border=False, ln=False)
-
-        self.cell(33, 4, "Civil Status", border=False, ln=False, align="R")
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Civil Status'], border=False, ln=True)
-        self.set_x(20)
-        self.cell(20, 4, "Birthdate", border=False, ln=False)
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Birth Date'], border=False, ln=False)
-
-        self.cell(33, 4, "Height", border=False, ln=False, align="R")
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Height'], border=False, ln=True)
-        self.set_x(20)
-        self.cell(20, 4, "Birth Place", border=False, ln=False)
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Birth Place'], border=False, ln=False)
-
-        self.cell(33, 4, "Weight", border=False, ln=False, align="R")
-        self.cell(6, 4, content_sep, border=False, ln=False, align="C")
-        self.cell(35, 4, usrDetails[1]['personalInfo']['Weight'], border=False, ln=True)
-
+        for i in range(maxPersonal):
+            if i % 2 == 0:
+                self.set_x(20)
+                self.cell(20, 4, infoCateg[i], border=False, ln=False)
+                self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+                self.cell(35, 4, usrDetails[1]['personalInfo'][infoCateg[i]], border=False, ln=False)
+            else:
+                self.cell(33, 4, infoCateg[i], border=False, ln=False, align="R")
+                self.cell(6, 4, content_sep, border=False, ln=False, align="C")
+                self.cell(35, 4, usrDetails[1]['personalInfo'][infoCateg[i]], border=False, ln=True)
         self.ln(3)
 
     def rsme_contact(self):
@@ -144,6 +124,13 @@ class PDF(FPDF):
         self.cell(40, 4, usrDetails[1]['education']['High School']['Senior Level']['Location'], border=False, ln=True) 
         self.set_x(76) 
         self.cell(40, 4, usrDetails[1]['education']['High School']['Senior Level']['Year'], border=False, ln=True)
+        self.ln(3)
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['High School']['Junior Level']['School'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['High School']['Junior Level']['Location'], border=False, ln=True) 
+        self.set_x(76) 
+        self.cell(40, 4, usrDetails[1]['education']['High School']['Junior Level']['Year'], border=False, ln=True)
         self.ln(2)
 
         self.set_x(35)
@@ -176,38 +163,54 @@ class PDF(FPDF):
         self.set_x(20)
         self.cell(90, 5, "Technical Skills", ln=False)
         self.cell(20, 5, "Soft Skills", ln=True, align="R")
-        self.set_x(35)
-        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][0], ln=False)
-        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][0], ln=True)
-        self.set_x(35)
-        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][1], ln=False)
-        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][1], ln=True)
-        self.set_x(35)
-        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][2], ln=False)
-        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][2], ln=True)
-        self.set_x(35)
-        self.cell(90, 5, usrDetails[1]["skills"]["Technical"][3], ln=False)
-        self.cell(20, 5, usrDetails[1]["skills"]["Personal"][3], ln=True)
-        self.ln(5)
+        prsnlSkills = len(usrDetails[1]['skills']['Personal'])
+        techSkills = len(usrDetails[1]['skills']['Technical'])
+        if techSkills == prsnlSkills:
+            for i in range(techSkills):
+                self.set_x(35)
+                self.cell(90, 5, usrDetails[1]["skills"]["Technical"][i], ln=False)
+                self.cell(20, 5, usrDetails[1]["skills"]["Personal"][i], ln=True)
+        else:
+            empty_filler = ""
+            if techSkills > prsnlSkills:
+                filler_number = techSkills - prsnlSkills
+                maxRange = techSkills
+                Valuepr_skill = usrDetails[1]['skills']['Personal']
+                for i in range(filler_number):
+                    Valuepr_skill.append(empty_filler)
+
+                for i in range(maxRange):
+                    self.set_x(35)
+                    self.cell(90, 5, usrDetails[1]["skills"]["Technical"][i], ln=False)
+                    self.cell(20, 5, Valuepr_skill[i], ln=True)
+
+            else:
+                maxRange = prsnlSkills
+                filler_number = prsnlSkills - techSkills
+                Valuepr_skill = usrDetails[1]['skills']['Technical']
+                for i in range(filler_number):
+                    Valuepr_skill.append(empty_filler)
+
+                for i in range(maxRange):
+                    self.set_x(35)
+                    self.cell(90, 5, Valuepr_skill[i], ln=False)
+                    self.cell(20, 5, usrDetails[1]["skills"]["Personal"][i], ln=True)
+        self.ln(4)
 
     def rsme_achvmnt(self):
         self.set_fill_color(45,45,45)
         self.set_text_color(255,255,255)
         self.set_font("helvetica", "", 8)
         self.cell(0, 5, content_hdr[4], border=False, ln=True, align="C", fill=True)
-        self.ln(5)
+        self.ln(3)
 
     def achvment_cntnt(self):
         self.set_font("helvetica", "", 8)
         self.set_text_color(0,0,0)
-        self.set_x(20)
-        self.cell(20, 5, usrDetails[1]['achvment'][0], ln=True)
-        self.set_x(20)
-        self.cell(20, 5, usrDetails[1]['achvment'][1], ln=True)
-        self.set_x(20)
-        self.cell(20, 5, usrDetails[1]['achvment'][2], ln=True)
-        self.set_x(20)
-        self.cell(20, 5, usrDetails[1]['achvment'][3], ln=True)
+        maxAchvment = len(usrDetails[1]['achvment'])
+        for i in range(maxAchvment):
+            self.set_x(20)
+            self.cell(20, 5, usrDetails[1]['achvment'][i], ln=True)
         self.ln(5)
 
     def rsme_ref(self):
@@ -258,4 +261,4 @@ pdf.achvment_cntnt()
 pdf.rsme_ref()
 pdf.ref_cntnt()
 
-pdf.output("RELLEVE_JO LYNDON.pdf")
+pdf.output("RELLEVE_JO-LYNDON.pdf")

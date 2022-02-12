@@ -14,7 +14,7 @@
             "Weight": "69.1 kg (152.3 lbs)"
         },
         "contact": {
-            "Current Address": "N/A",
+            "Current Address": "B-X L-XX XX-XXXXX St. San Antonio South, BXXX, 4XXX, LXXXXX, Philippines",
             "Mobile Number": "099X-XXX-XXX4",
             "Residence Number": "5XX-6XXX",
             "Email Address": "jXXXXXXXjr@gmail.com"
@@ -50,24 +50,25 @@
         },
         "skills": {
             "Technical":[
-                "PC Hardware Troubleshooting",
+                "PC hardware troubleshooting",
                 "Proficient in Microsoft Office (Word, Excel, PowerPoint, & Publisher)",
-                "Basic Programming (Python, C#, JavaScript)",
-                "Knowledgeable in Graphic Designs"
+                "Basic programming (Python, C#, JavaScript)",
+                "Knowledgeable in graphic design"
             ],
             "Personal":[
-                "Intermediate Writing and Communication Skill",
-                "Ability to work independently or as a team",
+                "Excellent verbal and written communication skills",
+                "Adaptable and receptive to training",
                 "Organized and efficient",
-                "N/A"
+                "Proven conflict resolution skill",
+                "Ability to translate ideas into unconventional solutions"
             ]
         },
         "achvment": [
-            "N/A",
-            "N/A",
-            "N/A",
-            "N/A"
+            "Recognized Outstanding Scholastic Performance - 'With High Honors' 2020 - 2021",
+            "Academic Excellence Awardee - 'With Honors' 2016 - 2020",
+            "Honor Society 2015 - 2016"
         ],
-        "reference": "Available upon request"
+        "reference": "Available upon request*",
+        "objective": "Seeking a challenging career with a progressive organization that provides opportunities to capitalize my capabilities; where I am able to find wide-ranging applications of acquired knowledge for professional growth while contributing success to the company."
     }
 ]

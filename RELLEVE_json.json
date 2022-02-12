@@ -6,7 +6,7 @@
         "personalInfo": {
             "Age": "N/A",
             "Birth Date": "N/A",
-            "Birth Place": "N/A",
+            "Birth Place": "Sta. Cruz Manila",
             "Nationality": "N/A",
             "Sex": "N/A",
             "Height": "N/A",
@@ -15,19 +15,22 @@
         },
         "contact": {
             "Current Address": "N/A",
-            "Permanent Address": "N/A",
             "Mobile Number": "N/A",
             "Residence Number": "N/A",
-            "Email Adress": "N/A"
+            "Email Address": "N/A"
         },
         "education": {
             "Elementary": {
-                "School": "N/A",
-                "Location": "N/A",
-                "Year": "N/A"
+                "School_0": "N/A",
+                "Location_0": "N/A",
+                "Year_0": "N/A",
+                "School_1": "N/A",
+                "Location_1": "N/A",
+                "Year_1": "N/A"
             },
             "High School": {
                 "Senior Level": {
+                    "Strand":"N/A",
                     "School": "N/A",
                     "Location": "N/A",
                     "Year": "N/A"
@@ -40,23 +43,32 @@
             },
             "Tertiary": {
                 "Field": "N/A",
-                "Major": "N/A",
-                "University": "N/A",
-                "Year": "N/A"
+                "Major": "Bachelor of Science in Computer Engineering",
+                "University": "Polytechnic University of the Philippines (Sta. Mesa)",
+                "Location":"N/A",
+                "Year": "2021 - present"
             }
         },
-        "skills": [
-            "N/A",
-            "N/A",
-            "N/A",
-            "N/A",
-            "N/A"
-        ],
+        "skills": {
+            "Technical":[
+                "N/A",
+                "N/A",
+                "N/A",
+                "N/A"
+            ],
+            "Personal":[
+                "N/A",
+                "N/A",
+                "N/A",
+                "N/A"
+            ]
+        },
         "achvment": [
             "N/A",
             "N/A",
+            "N/A",
             "N/A"
         ],
-        "referece": "Available upon request"
+        "reference": "Available upon request"
     }
 ]

@@ -4,62 +4,61 @@
     },
     {
         "personalInfo": {
-            "Age": "N/A",
-            "Birth Date": "N/A",
-            "Birth Place": "Sta. Cruz Manila",
-            "Nationality": "N/A",
-            "Sex": "N/A",
-            "Height": "N/A",
-            "Weight": "N/A",
-            "Civil Status": "N/A"
+            "Age": "XX years old",
+            "Nationality": "Filipino",
+            "Sex": "Male",
+            "Civil Status": "Single",
+            "Birthdate": "October XX , 2XXX",
+            "Height": "1.73 m (5' 8 ft)",
+            "Birthplace": "Sta. Cruz, Manila",
+            "Weight": "69.1 kg (152.3 lbs)"
         },
         "contact": {
             "Current Address": "N/A",
-            "Mobile Number": "N/A",
-            "Residence Number": "N/A",
-            "Email Address": "N/A"
+            "Mobile Number": "099X-XXX-XXX4",
+            "Residence Number": "5XX-6XXX",
+            "Email Address": "jXXXXXXXjr@gmail.com"
         },
         "education": {
             "Elementary": {
-                "School_0": "N/A",
-                "Location_0": "N/A",
-                "Year_0": "N/A",
-                "School_1": "N/A",
-                "Location_1": "N/A",
-                "Year_1": "N/A"
+                "School_0": "San Pedro Central Elementary School",
+                "Location_0": "J Luna St, San Pedro, Laguna",
+                "Year_0": "2XXX - 2XXX",
+                "School_1": "Sampaguita Village Elementary School",
+                "Location_1": "27 Lotus St, San Antonio, San Pedro, 4023 Laguna",
+                "Year_1": "2XXX - 2XXX"
             },
             "High School": {
                 "Senior Level": {
-                    "Strand":"N/A",
-                    "School": "N/A",
-                    "Location": "N/A",
-                    "Year": "N/A"
+                    "Strand":"Accountancy Business Management (ABM)",
+                    "School": "San Pedro College of Business Administration",
+                    "Location": "27 Lotus St, San Antonio, San Pedro, 4023 Laguna",
+                    "Year": "2XXX - 2XXX"
                 },
                 "Junior Level": {
-                    "School": "N/A",
-                    "Location": "N/A",
-                    "Year": "N/A"
+                    "School": "Pacita Complex National High School",
+                    "Location": "Sampaguita St. Pacita Complex I, San Pedro, Laguna",
+                    "Year": "2XXX - 2XXX"
                 }
             },
             "Tertiary": {
-                "Field": "N/A",
                 "Major": "Bachelor of Science in Computer Engineering",
                 "University": "Polytechnic University of the Philippines (Sta. Mesa)",
-                "Location":"N/A",
+                "Location":"1016 Anonas, Sta. Mesa, Maynila, Kalakhang Maynila",
                 "Year": "2021 - present"
             }
         },
         "skills": {
             "Technical":[
-                "N/A",
-                "N/A",
-                "N/A",
-                "N/A"
+                "PC Hardware Troubleshooting",
+                "Proficient in Microsoft Office (Word, Excel, PowerPoint, & Publisher)",
+                "Basic Programming (Python, C#, JavaScript)",
+                "Knowledgeable in Graphic Designs"
             ],
             "Personal":[
-                "N/A",
-                "N/A",
-                "N/A",
+                "Intermediate Writing and Communication Skill",
+                "Ability to work independently or as a team",
+                "Organized and efficient",
                 "N/A"
             ]
         },

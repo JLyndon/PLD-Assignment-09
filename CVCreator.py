@@ -15,7 +15,7 @@ class PDF(FPDF):
 
     def pg_header (self): 
         # Header == Display the User's ID picture and Name
-        self.image("ID_2x2.jpg", 160, 11, 37, 35)
+        self.image(usrDetails[0]["IDPic"], 160, 11, 37, 35)
         self.set_font("helvetica", "B", 31)
         for i in range(1,2):
             self.cell(0, 10, "", border=False, ln=True)

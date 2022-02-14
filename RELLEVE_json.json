@@ -1,6 +1,7 @@
 [
     {
-        "name": "Jo Lyndon A. Relleve Jr."
+        "name": "Jo Lyndon A. Relleve Jr.",
+        "IDPic": "ID_2x2.jpg"
     },
     {
         "personalInfo": {
@@ -32,7 +33,7 @@
                 "Senior Level": {
                     "Strand":"Accountancy Business Management (ABM)",
                     "School": "San Pedro College of Business Administration",
-                    "Location": "27 Lotus St, San Antonio, San Pedro, 4023 Laguna",
+                    "Location": "KM30 National Highway, San Pedro, 4023 Laguna",
                     "Year": "2XXX - 2XXX"
                 },
                 "Junior Level": {
